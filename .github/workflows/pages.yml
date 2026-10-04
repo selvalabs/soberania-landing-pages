@@ -20,8 +20,16 @@ jobs:
           find soberania-labs-scrollytelling -name '*.js' -exec node --check {} \;
       - name: Validate release identity
         if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          test "$(git cat-file -t "$GITHUB_REF_NAME")" = tag
+          tag_type=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$GITHUB_REF_NAME" --jq '.object.type')
+          test "$tag_type" = tag
+          tag_object=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$GITHUB_REF_NAME" --jq '.object.sha')
+          target_type=$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$tag_object" --jq '.object.type')
+          test "$target_type" = commit
+          target_sha=$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$tag_object" --jq '.object.sha')
+          test "$target_sha" = "$GITHUB_SHA"
           git merge-base --is-ancestor HEAD origin/main
       - name: Prepare static artifact
         run: |
