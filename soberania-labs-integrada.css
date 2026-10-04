@@ -122,11 +122,10 @@ html{scroll-behavior:auto}
 .fit .fit-list strong small{margin-top:12px;font-size:14px;line-height:1.65;color:#213a30}
 .fit .fit-list small b{font-weight:650;background:rgba(245,238,228,.38);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:1px 3px}
 @media(max-width:800px){.fit .fit-list p{min-height:0;padding:20px 16px;gap:14px}.fit .fit-list strong{font-size:21px}.fit .fit-list strong small{font-size:14px;margin-top:9px}}
-/* Lista editorial contínua: uma superfície, sem cards ou falsos botões. */
-.fit-situations{list-style:none;margin:0;padding:8px 26px;background:#cba48d;color:#17372d;align-self:start}
-.fit-situations li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:18px;padding:24px 0;border-bottom:1px solid rgba(23,55,45,.23)}
-.fit-situations li:last-child{border-bottom:0}
-.fit-situation-number{padding-top:4px;font:500 12px/1.5 var(--mono);color:#574235}
-.fit-situations h3{margin:0;font:700 20px/1.3 var(--sans);letter-spacing:-.025em;color:#17372d;text-wrap:pretty}
-.fit-situations p{margin:8px 0 0;font:400 15px/1.6 var(--sans);letter-spacing:0;color:#294538;text-wrap:pretty}
-@media(max-width:800px){.fit-situations{margin-top:28px;padding:4px 18px}.fit-situations li{gap:14px;padding:22px 0}.fit-situations h3{font-size:19px}.fit-situations p{font-size:15px}}
+/* Faixas separadas, com tipografia aberta e contraste de leitura. */
+.fit-situations{display:grid;gap:12px;list-style:none;margin:0;padding:0;background:transparent;align-self:start}
+.fit-situations li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:18px;padding:24px 22px;background:#73503f;border:0}
+.fit-situation-number{padding-top:3px;font:500 13px/1.5 var(--sans);color:#e5c9b5}
+.fit-situations h3{margin:0;font:600 20px/1.4 var(--sans);letter-spacing:0;color:#fff8ef;text-wrap:pretty}
+.fit-situations p{margin:8px 0 0;font:400 16px/1.6 var(--sans);letter-spacing:0;color:#f3e4d9;text-wrap:pretty}
+@media(max-width:800px){.fit-situations{margin-top:28px}.fit-situations li{gap:14px;padding:22px 18px}.fit-situations h3{font-size:20px}.fit-situations p{font-size:16px}}
