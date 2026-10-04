@@ -1,0 +1,48 @@
+name: Validate and publish Pages
+on:
+  pull_request:
+    branches: [main]
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate JavaScript
+        run: |
+          node --check script.js
+          node --check soberania-labs-integrada.js
+          find soberania-labs-scrollytelling -name '*.js' -exec node --check {} \;
+      - name: Validate release identity
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          test "$(git cat-file -t "$GITHUB_REF_NAME")" = tag
+          git merge-base --is-ancestor HEAD origin/main
+      - name: Prepare static artifact
+        run: |
+          mkdir public
+          cp index.html styles.css script.js soberania-labs-integrada.css soberania-labs-integrada.js .nojekyll public/
+          cp -R soberania-labs-scrollytelling public/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+  deploy:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Deploy approved release
+        id: deployment
+        uses: actions/deploy-pages@v4
