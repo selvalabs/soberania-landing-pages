@@ -1,5 +1,17 @@
 /* Demonstração guiada: uma única fonte de regras para desktop e mobile. */
 html{scroll-behavior:auto}
+.inside-device-selector{display:flex;justify-content:center;gap:4px;margin:0 0 18px;padding:4px;width:max-content;max-width:100%;background:var(--sand);border:1px solid var(--line)}
+.inside-device-selector button{border:0;padding:9px 18px;font:600 12px/1.2 var(--sans);background:transparent;color:var(--forest);cursor:pointer;touch-action:manipulation}
+.inside-device-selector button[aria-pressed="true"]{background:var(--forest);color:var(--bone)}
+.inside-device-selector button:focus-visible{outline:2px solid var(--clay);outline-offset:2px}
+.inside-frame-sticky[data-device="iphone"]{top:var(--device-top,88px)}
+.inside-frame-sticky[data-device="iphone"] .inside-frame{position:relative;width:min(100%,calc(var(--phone-height,520px)*.49 + 18px));margin-inline:auto;padding:9px;border:2px solid #7c7f7d;border-radius:42px;background:#101313;box-shadow:inset 0 0 0 2px #303534,inset 0 0 0 4px #050707,0 15px 30px rgba(17,45,39,.18),3px 0 0 #a3a7a3,-2px 0 0 #525956}
+.inside-frame-sticky[data-device="iphone"] .inside-frame:before{content:"";position:absolute;z-index:3;top:18px;left:50%;transform:translateX(-50%);width:29%;height:20px;border-radius:20px;background:radial-gradient(circle at 83% 50%,#182f41 0 3px,#070909 4px);pointer-events:none}
+.inside-frame-sticky[data-device="iphone"] .inside-frame:after{content:"";position:absolute;z-index:3;bottom:16px;left:35%;width:30%;height:4px;border-radius:4px;background:rgba(17,25,22,.55);pointer-events:none}
+.inside-frame-sticky[data-device="iphone"] .inside-browser{display:none}
+.inside-frame-sticky[data-device="iphone"] .inside-viewport{height:var(--phone-height,520px)!important;max-height:none;min-height:0;border-radius:30px;border-top:26px solid #f9f0e4}
+.inside-frame-sticky[data-device="iphone"] .inside-device-selector{margin-inline:auto}
+@media(max-width:1100px){.inside-frame-sticky[data-device="iphone"] .inside-notes{min-height:0;margin-top:12px}.inside-frame-sticky[data-device="iphone"] .inside-note{padding:12px 0 16px}.inside-frame-sticky[data-device="iphone"] .inside-note-index{font-size:9px;margin-bottom:8px}.inside-frame-sticky[data-device="iphone"] .inside-note h3{font-size:25px;line-height:1.05;letter-spacing:-.045em}.inside-frame-sticky[data-device="iphone"] .inside-note p{font-size:13px;line-height:1.45;margin-top:9px}.inside-frame-sticky[data-device="iphone"] .inside-counter{margin-top:12px}.inside-frame-sticky[data-device="iphone"] .inside-counter strong{font-size:26px}}
 .inside-section{background:var(--bone);border-top:1px solid var(--line);overflow:clip}
 .inside-intro{padding-bottom:64px}
 .inside-heading{display:grid;grid-template-columns:1fr .55fr;gap:10vw;align-items:end}
