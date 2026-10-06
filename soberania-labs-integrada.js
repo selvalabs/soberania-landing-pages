@@ -89,9 +89,9 @@
   function scrollJourney() {
     const track = Math.max(1, scrolly.offsetHeight - frameSticky.offsetHeight);
     const stickyTop = parseFloat(getComputedStyle(frameSticky).top) || 0;
-    // No celular, a primeira tela permanece parada depois do encaixe do palco.
+    // No modo iPhone, a primeira tela permanece parada depois do encaixe do palco.
     // A espera consome scroll existente, sem criar espaço vazio ao final.
-    const hold = window.matchMedia('(max-width: 800px)').matches ? Math.min(window.innerHeight * 0.55, track * 0.18) : 0;
+    const hold = device === 'iphone' ? Math.min(window.innerHeight * 0.55, track * 0.18) : 0;
     return {
       pinStart: scrolly.offsetTop - stickyTop,
       start: scrolly.offsetTop + hold,
