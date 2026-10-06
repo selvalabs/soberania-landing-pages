@@ -14,6 +14,8 @@
   presentation.className = 'inside-presentation';
   [...frameSticky.children].forEach((part) => presentation.append(part));
   frameSticky.append(presentation, notesPanel);
+  const deviceSelector = presentation.querySelector('.inside-device-selector');
+  notesPanel.prepend(deviceSelector);
 
   let frameReady = false;
   let activeIndex = -1;
@@ -34,9 +36,9 @@
     if (device === 'iphone') {
       frameSticky.style.setProperty('--device-top', `${(document.querySelector('.site-header')?.offsetHeight || 64) + 8}px`);
       const top = parseFloat(getComputedStyle(frameSticky).top) || 64;
-      const controls = presentation.querySelector('.inside-device-selector').offsetHeight;
+      const controls = mobileScene ? deviceSelector.offsetHeight : 0;
       const label = presentation.querySelector('.inside-frame-label').offsetHeight;
-      const reserved = mobileScene ? 290 : 112;
+      const reserved = mobileScene ? 300 : 88;
       const height = clamp(window.innerHeight - top - controls - label - reserved, 180, 620);
       presentation.style.setProperty('--phone-height', `${height}px`);
     }
