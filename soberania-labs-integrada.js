@@ -86,13 +86,26 @@
     count.textContent = String(next + 1).padStart(2, '0');
   }
 
+  function scrollJourney() {
+    const track = Math.max(1, scrolly.offsetHeight - frameSticky.offsetHeight);
+    const stickyTop = parseFloat(getComputedStyle(frameSticky).top) || 0;
+    // No celular, a primeira tela permanece parada depois do encaixe do palco.
+    // A espera consome scroll existente, sem criar espaço vazio ao final.
+    const hold = window.matchMedia('(max-width: 800px)').matches ? Math.min(window.innerHeight * 0.55, track * 0.18) : 0;
+    return {
+      pinStart: scrolly.offsetTop - stickyTop,
+      start: scrolly.offsetTop + hold,
+      span: Math.max(1, track - hold),
+      end: scrolly.offsetTop + track,
+    };
+  }
+
   function syncExperience() {
     ticking = false;
     if (!frameReady) return;
 
-    const stageHeight = frameSticky.offsetHeight;
-    const track = Math.max(1, scrolly.offsetHeight - stageHeight);
-    const progress = clamp((window.scrollY - scrolly.offsetTop) / track, 0, 1);
+    const journey = scrollJourney();
+    const progress = clamp((window.scrollY - journey.start) / journey.span, 0, 1);
     const win = innerWindow();
     const target = maxInnerScroll() * progress;
     if (Math.abs(win.scrollY - target) > 1) win.scrollTo(0, target);
@@ -110,7 +123,10 @@
     if (nextDevice === device) return;
     const win = innerWindow();
     const doc = frame.contentDocument;
-    const inScene = window.scrollY >= scrolly.offsetTop && window.scrollY <= scrolly.offsetTop + scrolly.offsetHeight - frameSticky.offsetHeight;
+    const previousJourney = scrollJourney();
+    const inScene = window.scrollY >= previousJourney.pinStart && window.scrollY <= previousJourney.end;
+    const inOpeningHold = window.scrollY <= previousJourney.start;
+    const holdProgress = clamp((window.scrollY - previousJourney.pinStart) / Math.max(1, previousJourney.start - previousJourney.pinStart), 0, 1);
     const anchors = notes.map((note) => doc?.querySelector(note.dataset.target));
     const tops = anchors.map((anchor) => anchor ? anchor.getBoundingClientRect().top + (win?.scrollY || 0) : 0);
     const readingPoint = (win?.scrollY || 0) + (win?.innerHeight || 0) * 0.35;
@@ -126,7 +142,11 @@
         const newEnd = updated[section + 1] ?? maxInnerScroll();
         const innerTarget = clamp(updated[section] + fraction * (newEnd - updated[section]) - win.innerHeight * 0.35, 0, maxInnerScroll());
         const progress = innerTarget / Math.max(1, maxInnerScroll());
-        window.scrollTo(0, scrolly.offsetTop + progress * Math.max(1, scrolly.offsetHeight - frameSticky.offsetHeight));
+        const journey = scrollJourney();
+        const outerTarget = inOpeningHold
+          ? journey.pinStart + holdProgress * (journey.start - journey.pinStart)
+          : journey.start + progress * journey.span;
+        window.scrollTo(0, outerTarget);
       }
       requestSync();
     });
