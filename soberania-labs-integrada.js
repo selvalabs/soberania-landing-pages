@@ -14,10 +14,15 @@
   presentation.className = 'inside-presentation';
   [...frameSticky.children].forEach((part) => presentation.append(part));
   frameSticky.append(presentation, notesPanel);
+  const deviceSelector = presentation.querySelector('.inside-device-selector');
+  notesPanel.prepend(deviceSelector);
 
   let frameReady = false;
   let activeIndex = -1;
   let ticking = false;
+  const deviceButtons = [...document.querySelectorAll('[data-preview-device]')];
+  let device = window.matchMedia('(max-width: 800px)').matches ? 'iphone' : 'monitor';
+  let deviceChosen = false;
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const innerWindow = () => frame.contentWindow;
@@ -25,15 +30,23 @@
   function setFrameMode() {
     const viewport = frame.closest('.inside-viewport');
     if (!viewport) return;
-    const desktopPreview = window.matchMedia('(min-width: 1101px)').matches;
-    frame.classList.toggle('is-desktop-preview', desktopPreview);
-    if (!desktopPreview) {
-      frame.removeAttribute('style');
-      return;
+    const mobileScene = window.matchMedia('(max-width: 1100px)').matches;
+    frameSticky.dataset.device = device;
+    deviceButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.previewDevice === device)));
+    if (device === 'iphone') {
+      frameSticky.style.setProperty('--device-top', `${(document.querySelector('.site-header')?.offsetHeight || 64) + 8}px`);
+      const top = parseFloat(getComputedStyle(frameSticky).top) || 64;
+      const controls = mobileScene ? deviceSelector.offsetHeight : 0;
+      const label = presentation.querySelector('.inside-frame-label').offsetHeight;
+      const reserved = mobileScene ? 300 : 88;
+      const height = clamp(window.innerHeight - top - controls - label - reserved, 180, 620);
+      presentation.style.setProperty('--phone-height', `${height}px`);
     }
+    const desktopPreview = device === 'monitor' && !mobileScene;
+    frame.classList.toggle('is-desktop-preview', desktopPreview);
     // O exemplo troca para layout mobile abaixo de 900px. Mantemos o iframe
     // com viewport de desktop e o escalamos visualmente dentro da moldura.
-    const sourceWidth = 1440;
+    const sourceWidth = desktopPreview ? 1440 : 390;
     const scale = viewport.clientWidth / sourceWidth;
     frame.style.width = `${sourceWidth}px`;
     frame.style.height = `${Math.ceil(viewport.clientHeight / scale)}px`;
@@ -73,13 +86,26 @@
     count.textContent = String(next + 1).padStart(2, '0');
   }
 
+  function scrollJourney() {
+    const track = Math.max(1, scrolly.offsetHeight - frameSticky.offsetHeight);
+    const stickyTop = parseFloat(getComputedStyle(frameSticky).top) || 0;
+    // No modo iPhone, a primeira tela permanece parada depois do encaixe do palco.
+    // A espera consome scroll existente, sem criar espaço vazio ao final.
+    const hold = device === 'iphone' ? Math.min(window.innerHeight * 0.55, track * 0.18) : 0;
+    return {
+      pinStart: scrolly.offsetTop - stickyTop,
+      start: scrolly.offsetTop + hold,
+      span: Math.max(1, track - hold),
+      end: scrolly.offsetTop + track,
+    };
+  }
+
   function syncExperience() {
     ticking = false;
     if (!frameReady) return;
 
-    const stageHeight = frameSticky.offsetHeight;
-    const track = Math.max(1, scrolly.offsetHeight - stageHeight);
-    const progress = clamp((window.scrollY - scrolly.offsetTop) / track, 0, 1);
+    const journey = scrollJourney();
+    const progress = clamp((window.scrollY - journey.start) / journey.span, 0, 1);
     const win = innerWindow();
     const target = maxInnerScroll() * progress;
     if (Math.abs(win.scrollY - target) > 1) win.scrollTo(0, target);
@@ -93,6 +119,45 @@
     requestAnimationFrame(syncExperience);
   }
 
+  function changeDevice(nextDevice) {
+    if (nextDevice === device) return;
+    const win = innerWindow();
+    const doc = frame.contentDocument;
+    const previousJourney = scrollJourney();
+    const inScene = window.scrollY >= previousJourney.pinStart && window.scrollY <= previousJourney.end;
+    const inOpeningHold = window.scrollY <= previousJourney.start;
+    const holdProgress = clamp((window.scrollY - previousJourney.pinStart) / Math.max(1, previousJourney.start - previousJourney.pinStart), 0, 1);
+    const anchors = notes.map((note) => doc?.querySelector(note.dataset.target));
+    const tops = anchors.map((anchor) => anchor ? anchor.getBoundingClientRect().top + (win?.scrollY || 0) : 0);
+    const readingPoint = (win?.scrollY || 0) + (win?.innerHeight || 0) * 0.35;
+    let section = 0;
+    tops.forEach((top, index) => { if (top <= readingPoint) section = index; });
+    const end = tops[section + 1] ?? maxInnerScroll();
+    const fraction = clamp((readingPoint - tops[section]) / Math.max(1, end - tops[section]), 0, 1);
+    device = nextDevice;
+    setFrameMode();
+    requestAnimationFrame(() => {
+      if (frameReady && inScene) {
+        const updated = anchors.map((anchor) => anchor ? anchor.getBoundingClientRect().top + win.scrollY : 0);
+        const newEnd = updated[section + 1] ?? maxInnerScroll();
+        const innerTarget = clamp(updated[section] + fraction * (newEnd - updated[section]) - win.innerHeight * 0.35, 0, maxInnerScroll());
+        const progress = innerTarget / Math.max(1, maxInnerScroll());
+        const journey = scrollJourney();
+        const outerTarget = inOpeningHold
+          ? journey.pinStart + holdProgress * (journey.start - journey.pinStart)
+          : journey.start + progress * journey.span;
+        window.scrollTo(0, outerTarget);
+      }
+      requestSync();
+    });
+  }
+
+  deviceButtons.forEach((button) => button.addEventListener('click', () => {
+    deviceChosen = true;
+    changeDevice(button.dataset.previewDevice);
+  }));
+  setFrameMode();
+
   frame.addEventListener('load', () => {
     frameReady = true;
     setFrameMode();
@@ -104,7 +169,7 @@
     if (doc && !doc.querySelector('#soberania-preview-overrides')) {
       const previewOverrides = doc.createElement('style');
       previewOverrides.id = 'soberania-preview-overrides';
-      previewOverrides.textContent = '.sticky-cta{display:none!important}';
+      previewOverrides.textContent = '.sticky-cta{display:none!important}html{scrollbar-width:none}::-webkit-scrollbar{display:none}';
       doc.head.append(previewOverrides);
     }
     activate(0);
@@ -113,6 +178,7 @@
 
   window.addEventListener('scroll', requestSync, { passive: true });
   window.addEventListener('resize', () => {
+    if (!deviceChosen) device = window.matchMedia('(max-width: 800px)').matches ? 'iphone' : 'monitor';
     setFrameMode();
     requestSync();
   }, { passive: true });

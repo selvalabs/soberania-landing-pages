@@ -1,5 +1,16 @@
 /* Demonstração guiada: uma única fonte de regras para desktop e mobile. */
 html{scroll-behavior:auto}
+.inside-device-selector{display:flex;justify-content:center;gap:4px;margin:0 0 18px;padding:4px;width:max-content;max-width:100%;background:var(--sand);border:1px solid var(--line)}
+.inside-device-selector button{border:0;padding:9px 18px;font:600 12px/1.2 var(--sans);background:transparent;color:var(--forest);cursor:pointer;touch-action:manipulation}
+.inside-device-selector button[aria-pressed="true"]{background:var(--forest);color:var(--bone)}
+.inside-device-selector button:focus-visible{outline:2px solid var(--clay);outline-offset:2px}
+.inside-frame-sticky[data-device="iphone"]{top:var(--device-top,88px)}
+.inside-frame-sticky[data-device="iphone"] .inside-frame{position:relative;width:min(100%,calc(var(--phone-height,520px)*.49 + 18px));margin-inline:auto;padding:9px;border:2px solid #7c7f7d;border-radius:42px;background:#101313;box-shadow:inset 0 0 0 2px #303534,inset 0 0 0 4px #050707,0 15px 30px rgba(17,45,39,.18),3px 0 0 #a3a7a3,-2px 0 0 #525956}
+.inside-frame-sticky[data-device="iphone"] .inside-frame:before{content:"";position:absolute;z-index:3;top:18px;left:50%;transform:translateX(-50%);width:29%;height:20px;border-radius:20px;background:radial-gradient(circle at 83% 50%,#182f41 0 3px,#070909 4px);pointer-events:none}
+.inside-frame-sticky[data-device="iphone"] .inside-frame:after{content:"";position:absolute;z-index:3;bottom:16px;left:35%;width:30%;height:4px;border-radius:4px;background:rgba(17,25,22,.55);pointer-events:none}
+.inside-frame-sticky[data-device="iphone"] .inside-browser{display:none}
+.inside-frame-sticky[data-device="iphone"] .inside-viewport{height:var(--phone-height,520px)!important;max-height:none;min-height:0;border-radius:30px;border-top:26px solid #f9f0e4}
+@media(max-width:1100px){.inside-frame-sticky[data-device="iphone"] .inside-notes{min-height:0;margin-top:12px}.inside-frame-sticky[data-device="iphone"] .inside-note{padding:12px 0 16px}.inside-frame-sticky[data-device="iphone"] .inside-note-index{font-size:9px;margin-bottom:8px}.inside-frame-sticky[data-device="iphone"] .inside-note h3{font-size:25px;line-height:1.05;letter-spacing:-.045em}.inside-frame-sticky[data-device="iphone"] .inside-note p{font-size:13px;line-height:1.45;margin-top:9px}.inside-frame-sticky[data-device="iphone"] .inside-counter{margin-top:12px}.inside-frame-sticky[data-device="iphone"] .inside-counter strong{font-size:26px}}
 .inside-section{background:var(--bone);border-top:1px solid var(--line);overflow:clip}
 .inside-intro{padding-bottom:64px}
 .inside-heading{display:grid;grid-template-columns:1fr .55fr;gap:10vw;align-items:end}
@@ -11,7 +22,7 @@ html{scroll-behavior:auto}
 /* O pai do sticky precisa ter a mesma altura do trilho. Sem isso, ele deixa de
    travar assim que termina a altura natural do frame. */
 .inside-frame-column{width:min(1120px,100%);min-height:600vh;margin:auto}
-.inside-frame-sticky{position:sticky;top:64px;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);gap:clamp(28px,5vw,72px);align-items:stretch;background:var(--bone);padding-bottom:0}
+.inside-frame-sticky{position:sticky;top:64px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.8fr);gap:clamp(28px,4vw,56px);align-items:start;background:var(--bone);padding-bottom:0}
 .inside-presentation{min-width:0}
 .inside-frame-label{display:flex;justify-content:space-between;gap:20px;margin-bottom:12px;font:9px var(--mono);letter-spacing:.08em;color:var(--clay)}
 .inside-frame{background:var(--forest);padding:14px;box-shadow:18px 18px 0 var(--sand)}
@@ -27,6 +38,16 @@ html{scroll-behavior:auto}
 .inside-note.is-active{display:block;animation:note-in .28s ease-out both}
 .inside-note-index{display:block;font:10px var(--mono);text-transform:uppercase;color:var(--clay);margin-bottom:24px}
 .inside-note h3{font:700 clamp(30px,3.5vw,53px)/.96 var(--display);letter-spacing:-.08em;max-width:470px;margin:0}.inside-note p{font-size:16px;line-height:1.5;max-width:390px;color:#69746d;margin:22px 0 0}
+.inside-frame-sticky .inside-notes{margin:0;padding:26px;background:var(--forest);border:0;box-shadow:inset 0 3px 0 var(--lime);color:var(--bone);min-height:350px}
+.inside-notes .inside-device-selector{margin:0 0 28px auto;background:rgba(241,237,227,.12);border:1px solid rgba(241,237,227,.3)}
+.inside-notes .inside-device-selector button{color:var(--bone)}
+.inside-notes .inside-device-selector button[aria-pressed="true"]{background:var(--bone);color:var(--forest)}
+.inside-notes .inside-device-selector button:focus-visible{outline-color:var(--lime)}
+.inside-frame-sticky .inside-note{border-top:0;padding:0}
+.inside-frame-sticky .inside-note-index{display:inline-block;padding:6px 9px;margin-bottom:20px;background:rgba(197,227,108,.12);color:var(--lime);font-size:10px;letter-spacing:.06em}
+.inside-frame-sticky .inside-note h3{color:var(--bone);font-size:clamp(32px,3.1vw,44px);line-height:1.06;letter-spacing:-.05em;text-wrap:balance}
+.inside-frame-sticky .inside-note p{color:#d5ded4;font-size:16px;line-height:1.6;margin-top:20px}
+@media(max-width:1100px){.inside-frame-sticky .inside-notes,.inside-frame-sticky[data-device="iphone"] .inside-notes{margin-top:14px;padding:16px;min-height:0}.inside-notes .inside-device-selector{margin:0 0 14px auto}.inside-notes .inside-device-selector button{padding:7px 13px;font-size:11px}.inside-frame-sticky .inside-note,.inside-frame-sticky[data-device="iphone"] .inside-note{padding:0}.inside-frame-sticky .inside-note-index,.inside-frame-sticky[data-device="iphone"] .inside-note-index{margin-bottom:10px;font-size:9px;padding:4px 7px}.inside-frame-sticky .inside-note h3,.inside-frame-sticky[data-device="iphone"] .inside-note h3{font-size:23px;line-height:1.1;letter-spacing:-.035em;text-wrap:pretty}.inside-frame-sticky .inside-note p,.inside-frame-sticky[data-device="iphone"] .inside-note p{font-size:13px;line-height:1.5;margin-top:10px}}
 @keyframes note-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 @media(max-width:1100px){
