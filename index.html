@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="soberania-labs-integrada.css?v=planos-1" />
+    <link rel="stylesheet" href="soberania-labs-integrada.css?v=planos-2" />
   </head>
   <body data-whatsapp-number="554891558269" data-whatsapp-message="Olá! Quero conversar sobre os planos de landing page da Soberania Labs.">
     <header class="site-header">
@@ -72,57 +72,116 @@
       <section class="offer section-pad" id="oferta">
         <div class="offer-card">
           <div class="section-kicker">08 / sua oferta no ar</div>
-          <div class="offer-pitch offer-plans-intro">
-            <h2>Da sua oferta<br /><em>à página publicada.</em></h2>
-            <p>Escolha a estrutura de que você precisa para vender.</p>
+          <div class="offer-plan-tablist" role="tablist" aria-label="Escolher plano" hidden>
+            <button type="button" role="tab" id="oferta-aba-essencial" aria-controls="oferta-essencial" aria-selected="false"><strong>Essencial</strong><span>R$ 500</span></button>
+            <button type="button" role="tab" id="oferta-aba-comercial" aria-controls="oferta-comercial" aria-selected="false"><strong>Comercial</strong><span>R$ 800</span></button>
+            <button type="button" role="tab" id="oferta-aba-performance" aria-controls="oferta-performance" aria-selected="false"><strong>Performance</strong><span>R$ 1.200</span></button>
+            <button type="button" role="tab" id="oferta-aba-estrategico" aria-controls="oferta-estrategico" aria-selected="true"><strong>Estratégico</strong><span>R$ 1.500</span></button>
           </div>
-          <div class="offer-plans">
-            <article class="offer-plan">
-              <h3>Essencial</h3>
-              <p class="offer-price"><span>R$</span> 500</p>
-              <p class="offer-plan-audience">Para quem já tem textos e materiais.</p>
+          <section class="offer-content offer-plan-panel" id="oferta-essencial" aria-labelledby="oferta-titulo-essencial">
+            <div class="offer-pitch">
+              <h2 id="oferta-titulo-essencial">Sua oferta<br /><em>pronta para apresentar.</em></h2>
+              <p>Para quem já tem os textos e materiais e precisa de uma página profissional para apresentar a oferta.</p>
               <ul class="offer-inclusions">
-                <li>Página responsiva em subdomínio Soberania</li>
-                <li>Aplicação dos seus textos, imagens e identidade visual</li>
-                <li>2 rodadas de ajustes</li>
+                <li><strong>Estrutura da página</strong> com as seções definidas no briefing aprovado</li>
+                <li>Design responsivo com a identidade visual, as imagens e os textos que você envia</li>
+                <li class="offer-anchor-benefit">
+                  <span class="offer-example-stamp">como essa</span>
+                  <strong class="offer-anchor-title">Seção de oferta<span>com preços e chamadas para ação</span></strong>
+                  <small>Apresentamos os benefícios, valores e condições da sua oferta para facilitar a decisão.</small>
+                </li>
+                <li>Botões conectados aos links que você indicar, como WhatsApp ou inscrição</li>
+                <li>Briefing guiado e revisão visual para indicar os ajustes na prévia</li>
+                <li>Publicação em um subdomínio da Soberania</li>
               </ul>
-              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Essencial de landing page por R$ 500." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Essencial%20de%20landing%20page%20por%20R%24%20500.">Escolher Essencial</a>
-            </article>
-            <article class="offer-plan">
-              <h3>Comercial</h3>
-              <p class="offer-price"><span>R$</span> 800</p>
-              <p class="offer-plan-audience">Para receber compras e medir acessos.</p>
+            </div>
+            <div class="offer-purchase">
+              <span class="offer-price-label">Plano Essencial</span>
+              <div class="offer-price"><span>R$</span> 500</div>
+              <p class="offer-support"><strong>6 meses de hospedagem e manutenção técnica básica</strong><br />Acesso ao espaço de revisão a partir da publicação.</p>
+              <p class="offer-support">2 rodadas de ajustes para revisar a página antes da publicação.</p>
+              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Essencial de landing page por R$ 500." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Essencial%20de%20landing%20page%20por%20R%24%20500.">Quero o plano Essencial</a>
+            </div>
+          </section>
+          <section class="offer-content offer-plan-panel" id="oferta-comercial" aria-labelledby="oferta-titulo-comercial">
+            <div class="offer-pitch">
+              <h2 id="oferta-titulo-comercial">Sua página<br /><em>pronta para vender.</em></h2>
+              <p>Para colocar a oferta no ar com domínio próprio, receber compras e acompanhar as visitas.</p>
               <ul class="offer-inclusions">
-                <li>Tudo do Essencial, mais produto e checkout configurados</li>
-                <li>Analytics e configuração de domínio próprio</li>
-                <li>4 rodadas de ajustes</li>
+                <li><strong>Página responsiva</strong> construída com os seus textos, imagens e identidade visual</li>
+                <li>Configuração do produto e do checkout, com botões de compra conectados</li>
+                <li class="offer-anchor-benefit">
+                  <span class="offer-example-stamp">como essa</span>
+                  <strong class="offer-anchor-title">Seção de oferta<span>com preços e chamadas para ação</span></strong>
+                  <small>Apresentamos os benefícios, valores e condições da sua oferta para facilitar a decisão.</small>
+                </li>
+                <li>Analytics para acompanhar visitas, origens do tráfego e cliques</li>
+                <li>Briefing guiado e revisão visual para indicar os ajustes na prévia</li>
+                <li>Publicação e configuração do domínio próprio. Registro e renovação ficam por sua conta.</li>
               </ul>
-              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Comercial de landing page por R$ 800." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Comercial%20de%20landing%20page%20por%20R%24%20800.">Escolher Comercial</a>
-            </article>
-            <article class="offer-plan">
-              <h3>Performance</h3>
-              <p class="offer-price"><span>R$</span> 1.200</p>
-              <p class="offer-plan-audience">Para integrar a entrega e adaptar a oferta.</p>
+            </div>
+            <div class="offer-purchase">
+              <span class="offer-price-label">Plano Comercial</span>
+              <div class="offer-price"><span>R$</span> 800</div>
+              <p class="offer-support"><strong>6 meses de hospedagem e manutenção técnica básica</strong><br />Acesso ao espaço de revisão a partir da publicação.</p>
+              <p class="offer-support">4 rodadas de ajustes para revisar a página antes da publicação.</p>
+              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Comercial de landing page por R$ 800." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Comercial%20de%20landing%20page%20por%20R%24%20800.">Quero o plano Comercial</a>
+            </div>
+          </section>
+          <section class="offer-content offer-plan-panel" id="oferta-performance" aria-labelledby="oferta-titulo-performance">
+            <div class="offer-pitch">
+              <h2 id="oferta-titulo-performance">Lance agora.<br /><em>Continue vendendo.</em></h2>
+              <p>Para integrar a venda à entrega digital e adaptar a mesma página quando a sua oferta mudar.</p>
               <ul class="offer-inclusions">
-                <li>Tudo do Comercial, mais integração da entrega digital</li>
-                <li>SEO técnico, GEO e otimização de carregamento</li>
-                <li>1 mudança de oferta e 8 rodadas de ajustes (4 + 4)</li>
+                <li>Página responsiva com os seus textos, imagens e identidade visual</li>
+                <li><strong>Produto, checkout e entrega digital</strong> conectados à plataforma escolhida</li>
+                <li class="offer-anchor-benefit">
+                  <span class="offer-example-stamp">como essa</span>
+                  <strong class="offer-anchor-title">Seção de oferta<span>com preços e chamadas para ação</span></strong>
+                  <small>Apresentamos os benefícios, valores e condições da sua oferta para facilitar a decisão.</small>
+                </li>
+                <li>Analytics, configuração de domínio próprio e publicação</li>
+                <li>SEO técnico, GEO e otimização do carregamento</li>
+                <li>Briefing guiado e revisão visual com a equipe</li>
+                <li>Uma mudança de oferta na mesma página, como passar de lançamento para venda contínua</li>
               </ul>
-              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Performance de landing page por R$ 1.200." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Performance%20de%20landing%20page%20por%20R%24%201.200.">Escolher Performance</a>
-            </article>
-            <article class="offer-plan">
-              <h3>Estratégico</h3>
-              <p class="offer-price"><span>R$</span> 1.500</p>
-              <p class="offer-plan-audience">Para delegar a criação e acompanhar resultados.</p>
+            </div>
+            <div class="offer-purchase">
+              <span class="offer-price-label">Plano Performance</span>
+              <div class="offer-price"><span>R$</span> 1.200</div>
+              <p class="offer-support"><strong>6 meses de hospedagem e manutenção técnica básica</strong><br />Acesso ao espaço de revisão a partir da publicação.</p>
+              <p class="offer-support">8 rodadas de ajustes. São 4 na construção e 4 após a mudança de oferta.</p>
+              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Performance de landing page por R$ 1.200." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Performance%20de%20landing%20page%20por%20R%24%201.200.">Quero o plano Performance</a>
+            </div>
+          </section>
+          <section class="offer-content offer-plan-panel" id="oferta-estrategico" aria-labelledby="oferta-titulo-estrategico">
+            <div class="offer-pitch">
+              <h2 id="oferta-titulo-estrategico">Do pré-lançamento<br /><em>ao perpétuo.</em></h2>
+              <p>Sua landing page pronta para divulgar, lançar e continuar vendendo, com criação e acompanhamento da equipe.</p>
               <ul class="offer-inclusions">
-                <li>Tudo do Performance, com as mesmas 8 rodadas</li>
-                <li>Copy e direção visual da página feitas pela equipe</li>
-                <li>6 relatórios mensais de desempenho</li>
+                <li><strong>Copy completa</strong> — a equipe escreve os textos com a sua aprovação</li>
+                <li><strong>Direção visual da página</strong> — paleta, tipografia e componentes para a sua oferta</li>
+                <li>Página responsiva com produto, checkout e entrega digital integrados</li>
+                <li class="offer-anchor-benefit">
+                  <span class="offer-example-stamp">como essa</span>
+                  <strong class="offer-anchor-title">Seção de oferta<span>com preços e chamadas para ação</span></strong>
+                  <small>Apresentamos os benefícios, valores e condições da sua oferta para facilitar a decisão.</small>
+                </li>
+                <li>Analytics, configuração de domínio próprio e publicação</li>
+                <li>SEO técnico, GEO e otimização do carregamento</li>
+                <li>Briefing guiado e revisão visual com a equipe</li>
+                <li>Uma mudança de oferta na mesma página, como passar de lançamento para venda contínua</li>
+                <li><strong>6 relatórios de desempenho</strong> — um por mês após a publicação</li>
               </ul>
-              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Estratégico de landing page por R$ 1.500." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Estrat%C3%A9gico%20de%20landing%20page%20por%20R%24%201.500.">Escolher Estratégico</a>
-            </article>
-          </div>
-          <p class="offer-plans-shared"><strong>Em todos os planos</strong> · Briefing guiado e revisão visual. A partir da publicação, são seis meses de hospedagem, manutenção técnica básica e acesso ao espaço de revisão.</p>
+            </div>
+            <div class="offer-purchase">
+              <span class="offer-price-label">Plano Estratégico</span>
+              <div class="offer-price"><span>R$</span> 1.500</div>
+              <p class="offer-support"><strong>6 meses de hospedagem e manutenção técnica básica</strong><br />Acesso ao espaço de revisão a partir da publicação.</p>
+              <p class="offer-support">8 rodadas de ajustes. São 4 na construção e 4 após a mudança de oferta.</p>
+              <a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Quero conversar sobre o plano Estratégico de landing page por R$ 1.500." href="https://wa.me/554891558269?text=Ol%C3%A1%21%20Quero%20conversar%20sobre%20o%20plano%20Estrat%C3%A9gico%20de%20landing%20page%20por%20R%24%201.500.">Quero o plano Estratégico</a>
+            </div>
+          </section>
           <p class="offer-plans-terms">Registro e renovação do domínio próprio e taxas de plataformas externas ficam por conta do cliente.</p>
 
           <details class="offer-comparison">
@@ -203,7 +262,7 @@
     </main>
     <dialog class="community-modal" id="community-offer" aria-labelledby="community-offer-title"><button class="community-close" type="button" data-community-close aria-label="Fechar oferta da comunidade">×</button><span class="community-eyebrow">exclusivo para integrantes</span><h2 id="community-offer-title">Comunidade<br /><em>Arca Astrológica.</em></h2><p>Sua landing page do pré-lançamento ao perpétuo, com uma condição exclusiva para integrantes da comunidade.</p><ul><li>Copy completa: todos os textos construídos com aprovação da cliente</li><li>Design responsivo e domínio .com.br</li><li>Seção de oferta com preços, serviços e descontos</li><li>Tracking, preparação para anúncios e SEO + GEO</li><li>3 meses de manutenção e até 10 ajustes totais</li></ul><div class="community-condition"><span class="community-original">Valor para integrantes</span><div class="community-price"><span>R$</span> 847</div><strong>Em 12x sem juros</strong></div><a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Sou integrante da comunidade Arca Astrológica e quero a landing page por R$ 847 em 12x sem juros." href="https://wa.me/554891558269">Quero a oferta de R$ 847</a></dialog>
     <footer class="site-footer"><div class="footer-brand">SOBERANIA <span>LABS</span></div><p>Infraestrutura estratégica para ofertas que precisam avançar.</p><div class="footer-links"><a href="#faq">Dúvidas</a><a href="#inicio">Voltar ao topo ↑</a></div></footer>
-    <script src="script.js?v=49"></script>
+    <script src="script.js?v=50"></script>
     <script src="soberania-labs-integrada.js?v=40"></script>
   </body>
 </html>
