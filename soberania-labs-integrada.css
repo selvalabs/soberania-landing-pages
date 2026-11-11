@@ -224,7 +224,23 @@ html{scroll-behavior:auto}
   justify-content:center;
   text-align:center;
 }
+.community-plan-options .community-condition-domain{
+  display:grid;
+  grid-column:1/-1;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:8px;
+  padding-inline:12px;
+  text-align:start;
+}
+.community-condition-domain .button{width:auto;margin:0}
 .community-domain-terms{margin:0}
+@media(max-width:420px){
+  .community-modal{padding:24px 18px 18px}
+  .community-modal h2{margin:18px 0 12px}
+  .community-plan-options{margin-block:12px 8px}
+  .community-plan-options .community-condition{padding-block:10px}
+}
 .offer-secondary .offer-community-action{
   width:auto;
   min-height:44px;
