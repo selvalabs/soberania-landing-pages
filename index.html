@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Landing pages estratégicas para transformar atenção em conversas comerciais." />
     <meta name="theme-color" content="#112d27" />
+    <link rel="stylesheet" href="soberania-labs-scrollytelling/inside-examples.css?v=1" />
     <title>Soberania Labs — Landing pages que transformam atenção em decisão</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,16 +31,60 @@
 
       <section class="anatomy section-pad"><div class="section-kicker">02 / a anatomia</div><div class="anatomy-grid"><div><h2>Cada dobra responde uma <em>dúvida real.</em></h2><p>Uma página comercial eficiente não cresce por obrigação. Ela cresce para remover incertezas e aproximar a decisão.</p></div><div class="fold-list"><div><span>01</span><strong>Promessa</strong><small>O que é e por que importa.</small></div><div><span>02</span><strong>Identificação</strong><small>Isso é para mim?</small></div><div><span>03</span><strong>Método</strong><small>Como a solução funciona.</small></div><div><span>04</span><strong>Entregas</strong><small>O que eu recebo.</small></div><div><span>05</span><strong>Prova</strong><small>Posso confiar?</small></div><div><span>06</span><strong>Oferta</strong><small>Como começo agora?</small></div></div></div></section>
 
-      <section class="inside-section" id="por-dentro">
-        <div class="section-pad inside-intro"><div class="section-kicker">03 / por dentro de uma página</div><div class="inside-heading"><h2>Veja a estrutura <em>acontecendo.</em></h2><p>Role para acompanhar uma página real. A cada nova dobra, mostramos o que ela precisa responder — exatamente no ponto em que isso aparece.</p></div></div>
-        <div class="inside-scrolly"><div class="inside-frame-column"><div class="inside-frame-sticky"><div class="inside-frame-label"><span>PROJETO REAL</span><span>DESAFIO SELVAGEM ↗</span></div><div class="inside-frame"><div class="inside-browser"><span class="browser-dots"><i></i><i></i><i></i></span><span>desafioselvagem.marianatevah.com.br</span><b>↗</b></div><div class="inside-viewport"><iframe id="inside-site" title="Demonstração navegável do site Desafio Selvagem" src="soberania-labs-scrollytelling/desafio-selvagem/index.html"></iframe><svg class="inside-ink" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><ellipse id="inside-ring" cx="50" cy="50" rx="1" ry="1"></ellipse><path id="inside-arrow" d="M 18 88 C 25 75, 35 68, 47 58"></path><path id="inside-arrow-head" d="M 47 58 L 39 59 M 47 58 L 44 65"></path></svg></div></div><div class="inside-counter"><strong id="inside-count">01</strong><span>/ 06</span><em>role para explorar</em></div></div></div><div class="inside-notes">
-          <article class="inside-note is-active" data-inside-step="0" data-target="#topo"><span class="inside-note-index">01 / promessa</span><h3>A primeira dobra dá contexto.</h3><p>Antes de explicar tudo, a página deixa claro o que está sendo oferecido e cria uma primeira imagem do resultado.</p></article>
-          <article class="inside-note" data-inside-step="1" data-target="#problema"><span class="inside-note-index">02 / identificação</span><h3>A pessoa se reconhece na história.</h3><p>A narrativa aproxima a oferta da rotina, do desejo ou do problema que o visitante já carrega.</p></article>
-          <article class="inside-note" data-inside-step="2" data-target=".routine-intro"><span class="inside-note-index">03 / jornada</span><h3>O caminho deixa de ser abstrato.</h3><p>Quando a experiência é apresentada por etapas, fica mais fácil entender o que acontece depois do clique.</p></article>
-          <article class="inside-note" data-inside-step="3" data-target="#central"><span class="inside-note-index">04 / entregas</span><h3>A oferta ganha forma.</h3><p>O visitante enxerga o que recebe, como participa e por que aquilo vale o investimento.</p></article>
-          <article class="inside-note" data-inside-step="4" data-target=".proof"><span class="inside-note-index">05 / prova</span><h3>A confiança aparece no momento certo.</h3><p>Provas, contexto e detalhes respondem às dúvidas que poderiam travar a decisão.</p></article>
-          <article class="inside-note" data-inside-step="5" data-target=".final"><span class="inside-note-index">06 / ação</span><h3>O próximo passo fica simples.</h3><p>No final da jornada, a página não deixa o visitante procurar o que fazer: ela aponta a conversa.</p></article>
-        </div></div>
+      <section class="inside-section" id="por-dentro" aria-labelledby="inside-title">
+        <div class="section-pad inside-intro">
+          <div class="section-kicker">03 / por dentro das páginas</div>
+          <div class="inside-heading">
+            <h2 id="inside-title">Veja a estrutura <em>acontecendo.</em></h2>
+            <p>Explore dois projetos reais. Role dentro de cada quadro e veja como a explicação muda a cada dobra.</p>
+          </div>
+        </div>
+        <div class="inside-examples">
+          <div class="inside-switch" role="group" aria-label="Escolher exemplo" hidden>
+            <button type="button" data-example-button="desafio" aria-controls="inside-desafio" aria-pressed="true">Desafio Selvagem</button>
+            <button type="button" data-example-button="elara" aria-controls="inside-elara" aria-pressed="false">Elara</button>
+          </div>
+          <div class="inside-grid">
+            <figure class="inside-frame is-current" id="inside-desafio" data-example="desafio">
+              <figcaption class="inside-frame-label"><strong>Desafio Selvagem</strong><span>Página de vendas</span></figcaption>
+              <div class="inside-viewport">
+                <iframe title="Prévia do Desafio Selvagem" src="soberania-labs-scrollytelling/desafio-selvagem/index.html"></iframe>
+              </div>
+              <template>
+                <article data-target="#topo" data-label="Promessa"><h3>A primeira dobra dá contexto.</h3><p>A abertura apresenta o desafio de sete dias e o resultado que a leitora pode esperar.</p></article>
+                <article data-target="#problema" data-label="Identificação"><h3>A pessoa se reconhece na história.</h3><p>A narrativa aproxima a oferta da rotina e das dificuldades que a visitante já enfrenta.</p></article>
+                <article data-target=".routine-intro" data-label="Jornada"><h3>O caminho deixa de ser abstrato.</h3><p>As etapas mostram o que acontece depois da inscrição.</p></article>
+                <article data-target="#central" data-label="Entregas"><h3>A oferta ganha forma.</h3><p>A visitante entende o que recebe e como participa do desafio.</p></article>
+                <article data-target=".proof" data-label="Prova"><h3>A confiança aparece no momento certo.</h3><p>Provas e contexto ajudam a resolver dúvidas antes da decisão.</p></article>
+                <article data-target=".final" data-label="Ação"><h3>O próximo passo fica simples.</h3><p>A página termina com uma ação clara para quem quer participar.</p></article>
+              </template>
+            </figure>
+            <figure class="inside-frame" id="inside-elara" data-example="elara">
+              <figcaption class="inside-frame-label"><strong>Elara</strong><span>Captura de portfólio</span></figcaption>
+              <div class="inside-viewport">
+                <iframe title="Prévia visual da landing page Elara" src="soberania-labs-scrollytelling/elara/index.html"></iframe>
+              </div>
+              <template>
+                <article data-target="#inicio" data-label="Abertura"><h3>A formação encontra seu público.</h3><p>A abertura nomeia a proposta e fala diretamente com mulheres que guiam outras mulheres.</p></article>
+                <article data-target="#proposta" data-label="Proposta"><h3>A narrativa situa a experiência.</h3><p>Texto e imagens ajudam a entender por que a formação existe e quais questões ela acolhe.</p></article>
+                <article data-target="#caminhos" data-label="Caminhos"><h3>O conteúdo aparece em partes.</h3><p>Os caminhos mostram os temas da formação e ajudam a visitante a se localizar na proposta.</p></article>
+                <article data-target="#comparacao" data-label="Diferenciais"><h3>A comparação esclarece a escolha.</h3><p>Os diferenciais mostram como a experiência foi pensada e em que ela se distingue de outras formações.</p></article>
+                <article data-target="#autoria" data-label="Autoria e prova"><h3>Quem conduz também importa.</h3><p>A trajetória de Alejandra e os depoimentos dão contexto à decisão.</p></article>
+                <article data-target="#por-dentro" data-label="Entregas"><h3>A visitante vê o que recebe.</h3><p>A prévia da formação e os materiais ajudam a imaginar a experiência na prática.</p></article>
+                <article data-target="#investimento" data-label="Oferta"><h3>O investimento chega com contexto.</h3><p>As condições aparecem depois que a visitante já conhece a formação e suas entregas.</p></article>
+                <article data-target="#faq" data-label="Dúvidas"><h3>As últimas dúvidas têm resposta.</h3><p>As perguntas frequentes encerram a página e ajudam a decidir o próximo passo.</p></article>
+              </template>
+            </figure>
+            <aside class="inside-notes" aria-label="Explicação da dobra" aria-live="polite" aria-atomic="true">
+              <p class="inside-note-project">Desafio Selvagem</p>
+              <p class="inside-note-index">01 / 06 · Promessa</p>
+              <div class="inside-note-copy">
+                <h3>A primeira dobra dá contexto.</h3>
+                <p>A abertura apresenta o desafio de sete dias e o resultado que a leitora pode esperar.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
       </section>
 
       <section class="method section-pad" id="metodo"><div class="section-kicker">03 / o método Soberania Labs</div><div class="method-head"><h2 class="method-title"><span class="method-title-intro">Da sua oferta</span><span class="method-title-main">à página pronta</span><em class="method-title-highlight">para vender.</em></h2><p class="method-summary"><span class="method-summary-label">como chegamos lá</span>Organizamos a mensagem, desenhamos a experiência e publicamos sua página.</p></div><div class="steps"><article class="step"><span class="step-num">01</span><div><h3>Diagnóstico</h3><p>Entendemos o negócio, o público e o objetivo principal da página.</p></div><span class="step-icon">⌁</span></article><article class="step"><span class="step-num">02</span><div><h3>Estrutura</h3><p>Organizamos a narrativa e definimos a função de cada dobra.</p></div><span class="step-icon">▦</span></article><article class="step"><span class="step-num">03</span><div><h3>Design</h3><p>Traduzimos sua oferta em uma experiência visual clara e própria.</p></div><span class="step-icon">✳</span></article><article class="step"><span class="step-num">04</span><div><h3>Entrega</h3><p>Publicamos uma página responsiva com seus links de vendas e relatório de métricas.</p></div><span class="step-icon">↗</span></article></div></section>
@@ -56,6 +101,6 @@
     <dialog class="community-modal" id="community-offer" aria-labelledby="community-offer-title"><button class="community-close" type="button" data-community-close aria-label="Fechar oferta da comunidade">×</button><span class="community-eyebrow">exclusivo para integrantes</span><h2 id="community-offer-title">Comunidade<br /><em>Arca Astrológica.</em></h2><p>Sua landing page do pré-lançamento ao perpétuo, com uma condição exclusiva para integrantes da comunidade.</p><ul><li>Copy completa: todos os textos construídos com aprovação da cliente</li><li>Design responsivo e domínio .com.br</li><li>Seção de oferta com preços, serviços e descontos</li><li>Tracking, preparação para anúncios e SEO + GEO</li><li>3 meses de manutenção e até 10 ajustes totais</li></ul><div class="community-condition"><span class="community-original">De <s>R$ 1.200</s> por</span><div class="community-price"><span>R$</span> 847</div><strong>Em 12x sem juros</strong></div><a class="button button-dark" data-whatsapp data-whatsapp-message="Olá! Sou integrante da comunidade Arca Astrológica e quero a landing page por R$ 847 em 12x sem juros." href="https://wa.me/554891558269">Quero a oferta de R$ 847</a></dialog>
     <footer class="site-footer"><div class="footer-brand">SOBERANIA <span>LABS</span></div><p>Infraestrutura estratégica para ofertas que precisam avançar.</p><div class="footer-links"><a href="#faq">Dúvidas</a><a href="#inicio">Voltar ao topo ↑</a></div></footer>
     <script src="script.js?v=48"></script>
-    <script src="soberania-labs-integrada.js?v=40"></script>
+    <script src="soberania-labs-integrada.js?v=41"></script>
   </body>
 </html>
