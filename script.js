@@ -37,6 +37,16 @@ if (planTablist) {
   }
 
   if (plans.length && plans.every(({ panel }) => panel)) {
+    const shortViewport = window.matchMedia('(max-width: 800px) and (max-height: 850px), (max-height: 650px)');
+    const benefitLists = plans.map(({ panel }) => panel.querySelector('.offer-plan-benefits'));
+    const fitBenefits = () => {
+      benefitLists.forEach((details) => {
+        if (details) details.open = !shortViewport.matches;
+      });
+    };
+    fitBenefits();
+    shortViewport.addEventListener('change', fitBenefits);
+
     plans.forEach(({ tab, panel }, index) => {
       panel.setAttribute('role', 'tabpanel');
       panel.setAttribute('aria-labelledby', tab.id);
