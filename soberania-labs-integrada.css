@@ -129,3 +129,82 @@ html{scroll-behavior:auto}
 .fit-situations h3{margin:0;font:600 20px/1.4 var(--sans);letter-spacing:0;color:#fff8ef;text-wrap:pretty}
 .fit-situations p{margin:8px 0 0;font:400 16px/1.6 var(--sans);letter-spacing:0;color:#f3e4d9;text-wrap:pretty}
 @media(max-width:800px){.fit-situations{margin-top:28px}.fit-situations li{gap:14px;padding:22px 18px}.fit-situations h3{font-size:20px}.fit-situations p{font-size:16px}}
+
+/* Os quatro planos compartilham o painel da oferta. */
+.offer-plans-intro{padding-bottom:22px}
+.offer-plans-intro>p{margin-bottom:0}
+.offer-plans{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  border-block:1px solid var(--line);
+}
+.offer-plan{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  padding:18px 14px 16px;
+}
+.offer-plan+.offer-plan{border-inline-start:1px solid var(--line)}
+.offer-plan:last-child{background:rgba(241,237,227,.35)}
+.offer-plan h3{
+  margin:0;
+  font:700 22px/1.1 var(--display);
+  letter-spacing:-.045em;
+}
+.offer-plan .offer-price{
+  font-size:clamp(35px,3.6vw,56px);
+  margin:8px 0 10px;
+}
+.offer-plan-audience{margin:0 0 13px;font-size:13px;min-height:2.9em}
+.offer-plan .offer-inclusions{margin-bottom:15px}
+.offer-plan .offer-inclusions li{min-height:3.9em;padding-block:8px}
+.offer-plan .button{
+  justify-content:center;
+  min-height:44px;
+  margin-top:auto;
+  padding:12px 8px;
+  text-align:center;
+}
+.offer-plans-shared{margin:16px 0 4px;font-size:13px}
+.offer-plans-terms{margin:4px 0 16px;font-size:12px}
+.offer-comparison{border-block:1px solid var(--line)}
+.offer-comparison summary{
+  padding:12px 0;
+  cursor:pointer;
+  font-size:13px;
+  font-weight:700;
+}
+.offer-table-scroll{overflow-x:auto;margin-bottom:12px}
+.offer-comparison table{
+  width:100%;
+  min-width:590px;
+  border-collapse:collapse;
+  font-size:12px;
+}
+.offer-comparison th,.offer-comparison td{
+  padding:8px;
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+.offer-comparison th:first-child{text-align:start}
+.offer-community-separate{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px 24px;
+  padding:16px 0;
+}
+.offer-community-separate span{display:block;margin-top:3px}
+.offer-community-separate .button{width:auto;min-height:44px}
+
+@media(max-width:940px){
+  .offer-plans{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .offer-plan:nth-child(3){border-inline-start:0}
+  .offer-plan:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media(max-width:520px){
+  .offer-plans{grid-template-columns:minmax(0,1fr)}
+  .offer-plan+.offer-plan{border-inline-start:0;border-top:1px solid var(--line)}
+  .offer-plan-audience,.offer-plan .offer-inclusions li{min-height:0}
+}

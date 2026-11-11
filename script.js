@@ -1,5 +1,5 @@
 const WHATSAPP_NUMBER = document.body.dataset.whatsappNumber || '5500000000000';
-const whatsappMessage = document.body.dataset.whatsappMessage || 'Olá! Quero criar uma landing page estratégica por R$ 1.200.';
+const whatsappMessage = document.body.dataset.whatsappMessage || 'Olá! Quero conversar sobre os planos de landing page da Soberania Labs.';
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
@@ -19,11 +19,13 @@ document.querySelectorAll('[data-whatsapp]').forEach((link) => {
   });
 });
 
-document.querySelectorAll('details').forEach((item) => {
+const faqItems = document.querySelectorAll('.faq-list details');
+
+faqItems.forEach((item) => {
   item.addEventListener('toggle', () => {
     if (!item.open) return;
-    document.querySelectorAll('details[open]').forEach((other) => {
-      if (other !== item) other.removeAttribute('open');
+    faqItems.forEach((other) => {
+      if (other !== item && other.open) other.open = false;
     });
   });
 });
