@@ -205,6 +205,26 @@ html{scroll-behavior:auto}
   text-align:center;
 }
 .offer-comparison th:first-child{text-align:start}
+.offer-feature-yes,.offer-feature-no{font-size:16px;font-weight:700}
+.offer-feature-yes{color:var(--forest)}
+.offer-feature-no{color:#703e30}
+.community-plan-options{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-block:14px 10px;
+}
+.community-plan-options .community-condition{margin:0;padding:12px 8px}
+.community-plan-options h3{margin:0 0 4px;font:700 16px/1.15 var(--display)}
+.community-plan-options .community-original{margin:0;font-size:11px}
+.community-plan-options .community-price{margin:4px 0;font-size:clamp(27px,8vw,40px);white-space:nowrap}
+.community-plan-options .button{
+  min-height:44px;
+  padding:6px;
+  justify-content:center;
+  text-align:center;
+}
+.community-domain-terms{margin:0}
 .offer-secondary .offer-community-action{
   width:auto;
   min-height:44px;
