@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Landing pages estratégicas para transformar atenção em conversas comerciais." />
     <meta name="theme-color" content="#112d27" />
-    <link rel="stylesheet" href="soberania-labs-scrollytelling/inside-examples.css?v=1" />
-    <script defer src="soberania-labs-scrollytelling/inside-examples.js?v=1"></script>
+    <link rel="stylesheet" href="soberania-labs-scrollytelling/inside-examples.css?v=2" />
+    <script defer src="soberania-labs-scrollytelling/inside-examples.js?v=2"></script>
     <title>Soberania Labs — Landing pages que transformam atenção em decisão</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,47 +37,89 @@
           <div class="section-kicker">03 / por dentro das páginas</div>
           <div class="inside-heading">
             <h2 id="inside-title">Veja a estrutura <em>acontecendo.</em></h2>
-            <p>Explore dois projetos reais. Role dentro de cada quadro e veja como a explicação muda a cada dobra.</p>
+            <p>Escolha um projeto ou role sobre a galeria para girar entre os exemplos. Dentro de cada tela, a rolagem acompanha as dobras da página.</p>
           </div>
         </div>
         <div class="inside-examples">
-          <div class="inside-switch" role="group" aria-label="Escolher exemplo" hidden>
+          <div class="inside-switch" role="group" aria-label="Escolher projeto" hidden>
             <button type="button" data-example-button="desafio" aria-controls="inside-desafio" aria-pressed="true">Desafio Selvagem</button>
             <button type="button" data-example-button="elara" aria-controls="inside-elara" aria-pressed="false">Elara</button>
+            <button type="button" data-example-button="comunidade" aria-controls="inside-comunidade" aria-pressed="false">Comunidade</button>
           </div>
           <div class="inside-grid">
-            <figure class="inside-frame is-current" id="inside-desafio" data-example="desafio">
-              <figcaption class="inside-frame-label"><strong>Desafio Selvagem</strong><span>Página de vendas</span></figcaption>
-              <div class="inside-viewport">
-                <iframe title="Prévia do Desafio Selvagem" src="soberania-labs-scrollytelling/desafio-selvagem/index.html"></iframe>
-              </div>
-              <template>
-                <article data-target="#topo" data-label="Promessa"><h3>A primeira dobra dá contexto.</h3><p>A abertura apresenta o desafio de sete dias e o resultado que a leitora pode esperar.</p></article>
-                <article data-target="#problema" data-label="Identificação"><h3>A pessoa se reconhece na história.</h3><p>A narrativa aproxima a oferta da rotina e das dificuldades que a visitante já enfrenta.</p></article>
-                <article data-target=".routine-intro" data-label="Jornada"><h3>O caminho deixa de ser abstrato.</h3><p>As etapas mostram o que acontece depois da inscrição.</p></article>
-                <article data-target="#central" data-label="Entregas"><h3>A oferta ganha forma.</h3><p>A visitante entende o que recebe e como participa do desafio.</p></article>
-                <article data-target=".proof" data-label="Prova"><h3>A confiança aparece no momento certo.</h3><p>Provas e contexto ajudam a resolver dúvidas antes da decisão.</p></article>
-                <article data-target=".final" data-label="Ação"><h3>O próximo passo fica simples.</h3><p>A página termina com uma ação clara para quem quer participar.</p></article>
-              </template>
-            </figure>
-            <figure class="inside-frame" id="inside-elara" data-example="elara">
-              <figcaption class="inside-frame-label"><strong>Elara</strong><span>Captura de portfólio</span></figcaption>
-              <div class="inside-viewport">
-                <iframe title="Prévia visual da landing page Elara" src="soberania-labs-scrollytelling/elara/index.html"></iframe>
-              </div>
-              <template>
-                <article data-target="#inicio" data-label="Abertura"><h3>A formação encontra seu público.</h3><p>A abertura nomeia a proposta e fala diretamente com mulheres que guiam outras mulheres.</p></article>
-                <article data-target="#proposta" data-label="Proposta"><h3>A narrativa situa a experiência.</h3><p>Texto e imagens ajudam a entender por que a formação existe e quais questões ela acolhe.</p></article>
-                <article data-target="#caminhos" data-label="Caminhos"><h3>O conteúdo aparece em partes.</h3><p>Os caminhos mostram os temas da formação e ajudam a visitante a se localizar na proposta.</p></article>
-                <article data-target="#comparacao" data-label="Diferenciais"><h3>A comparação esclarece a escolha.</h3><p>Os diferenciais mostram como a experiência foi pensada e em que ela se distingue de outras formações.</p></article>
-                <article data-target="#autoria" data-label="Autoria e prova"><h3>Quem conduz também importa.</h3><p>A trajetória de Alejandra e os depoimentos dão contexto à decisão.</p></article>
-                <article data-target="#por-dentro" data-label="Entregas"><h3>A visitante vê o que recebe.</h3><p>A prévia da formação e os materiais ajudam a imaginar a experiência na prática.</p></article>
-                <article data-target="#investimento" data-label="Oferta"><h3>O investimento chega com contexto.</h3><p>As condições aparecem depois que a visitante já conhece a formação e suas entregas.</p></article>
-                <article data-target="#faq" data-label="Dúvidas"><h3>As últimas dúvidas têm resposta.</h3><p>As perguntas frequentes encerram a página e ajudam a decidir o próximo passo.</p></article>
-              </template>
-            </figure>
+            <div class="inside-deck">
+              <figure class="inside-frame" id="inside-desafio" data-example="desafio" aria-label="Desafio Selvagem">
+                <div class="inside-device-pair">
+                  <div class="inside-device inside-device--desktop">
+                    <div class="inside-viewport">
+                      <iframe title="Desafio Selvagem · desktop" data-device="desktop" width="1280" height="800" src="soberania-labs-scrollytelling/desafio-selvagem/index.html"></iframe>
+                    </div>
+                  </div>
+                  <div class="inside-device inside-device--phone">
+                    <div class="inside-viewport">
+                      <iframe title="Desafio Selvagem · celular" data-device="celular" width="390" height="844" src="soberania-labs-scrollytelling/desafio-selvagem/index.html"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <template>
+                  <article data-target="#topo" data-label="Promessa"><h3>A primeira dobra dá contexto.</h3><p>A abertura apresenta o desafio de sete dias e o resultado que a leitora pode esperar.</p></article>
+                  <article data-target="#problema" data-label="Identificação"><h3>A pessoa se reconhece na história.</h3><p>A narrativa aproxima a oferta da rotina e das dificuldades que a visitante já enfrenta.</p></article>
+                  <article data-target=".routine-intro" data-label="Jornada"><h3>O caminho deixa de ser abstrato.</h3><p>As etapas mostram o que acontece depois da inscrição.</p></article>
+                  <article data-target="#central" data-label="Entregas"><h3>A oferta ganha forma.</h3><p>A visitante entende o que recebe e como participa do desafio.</p></article>
+                  <article data-target=".proof" data-label="Prova"><h3>A confiança aparece no momento certo.</h3><p>Provas e contexto ajudam a resolver dúvidas antes da decisão.</p></article>
+                  <article data-target=".final" data-label="Ação"><h3>O próximo passo fica simples.</h3><p>A página termina com uma ação clara para quem quer participar.</p></article>
+                </template>
+              </figure>
+              <figure class="inside-frame" id="inside-elara" data-example="elara" aria-label="Elara">
+                <div class="inside-device-pair">
+                  <div class="inside-device inside-device--desktop">
+                    <div class="inside-viewport">
+                      <iframe title="Elara · desktop" data-device="desktop" width="1280" height="800" loading="lazy" src="soberania-labs-scrollytelling/elara/desktop/index.html"></iframe>
+                    </div>
+                  </div>
+                  <div class="inside-device inside-device--phone">
+                    <div class="inside-viewport">
+                      <iframe title="Elara · celular" data-device="celular" width="390" height="844" loading="lazy" src="soberania-labs-scrollytelling/elara/index.html"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <template>
+                  <article data-target="#inicio" data-label="Abertura"><h3>A formação encontra seu público.</h3><p>A abertura nomeia a proposta e fala diretamente com mulheres que guiam outras mulheres.</p></article>
+                  <article data-target="#proposta" data-label="Proposta"><h3>A narrativa situa a experiência.</h3><p>Texto e imagens ajudam a entender por que a formação existe e quais questões ela acolhe.</p></article>
+                  <article data-target="#caminhos" data-label="Caminhos"><h3>O conteúdo aparece em partes.</h3><p>Os caminhos mostram os temas da formação e ajudam a visitante a se localizar na proposta.</p></article>
+                  <article data-target="#comparacao" data-label="Diferenciais"><h3>A comparação esclarece a escolha.</h3><p>Os diferenciais mostram como a experiência foi pensada e em que ela se distingue de outras formações.</p></article>
+                  <article data-target="#autoria" data-label="Autoria e prova"><h3>Quem conduz também importa.</h3><p>A trajetória de Alejandra e os depoimentos dão contexto à decisão.</p></article>
+                  <article data-target="#por-dentro" data-label="Entregas"><h3>A visitante vê o que recebe.</h3><p>A prévia da formação e os materiais ajudam a imaginar a experiência na prática.</p></article>
+                  <article data-target="#investimento" data-label="Oferta"><h3>O investimento chega com contexto.</h3><p>As condições aparecem depois que a visitante já conhece a formação e suas entregas.</p></article>
+                  <article data-target="#faq" data-label="Dúvidas"><h3>As últimas dúvidas têm resposta.</h3><p>As perguntas frequentes encerram a página e ajudam a decidir o próximo passo.</p></article>
+                </template>
+              </figure>
+              <figure class="inside-frame" id="inside-comunidade" data-example="comunidade" aria-label="Comunidade de Planejamento Cíclico">
+                <div class="inside-device-pair">
+                  <div class="inside-device inside-device--desktop">
+                    <div class="inside-viewport">
+                      <iframe title="Comunidade de Planejamento Cíclico · desktop" data-device="desktop" width="1280" height="800" loading="lazy" src="soberania-labs-scrollytelling/comunidade/desktop/index.html"></iframe>
+                    </div>
+                  </div>
+                  <div class="inside-device inside-device--phone">
+                    <div class="inside-viewport">
+                      <iframe title="Comunidade de Planejamento Cíclico · celular" data-device="celular" width="390" height="844" loading="lazy" src="soberania-labs-scrollytelling/comunidade/celular/index.html"></iframe>
+                    </div>
+                  </div>
+                </div>
+                <template>
+                  <article data-target="#inicio" data-label="Abertura"><h3>O céu e o mar abrem a experiência.</h3><p>O pôr do sol apresenta a comunidade de Mariana Tevah e a ideia de planejar a vida respeitando os próprios ciclos.</p></article>
+                  <article data-target="#identificacao" data-label="Identificação"><h3>A leitora reconhece o próprio ritmo.</h3><p>A página parte da experiência de adiar o que importa e apresenta outra forma de organizar a vida.</p></article>
+                  <article data-target="#metodo" data-label="Método"><h3>A mandala organiza a proposta.</h3><p>Os pontos do método mostram como transformar autoconhecimento em decisões e ações ao longo do ciclo.</p></article>
+                  <article data-target="#comunidade" data-label="Comunidade"><h3>A prática ganha companhia.</h3><p>As atividades e os encontros mostram como o Planejamento Cíclico acontece em grupo.</p></article>
+                  <article data-target="#mariana" data-label="Autoria e prova"><h3>A página apresenta quem conduz.</h3><p>A trajetória de Mariana e os relatos das participantes dão contexto à experiência da comunidade.</p></article>
+                  <article data-target="#por-dentro" data-label="Entregas"><h3>O que está incluso fica visível.</h3><p>Uma prévia dos espaços, encontros e materiais ajuda a visitante a entender o que recebe.</p></article>
+                  <article data-target="#investimento" data-label="Investimento"><h3>O convite fecha a jornada.</h3><p>A oferta reúne o investimento e o próximo passo para participar.</p></article>
+                </template>
+              </figure>
+            </div>
             <aside class="inside-notes" aria-label="Explicação da dobra" aria-live="polite" aria-atomic="true">
-              <p class="inside-note-project">Desafio Selvagem</p>
+              <p class="inside-note-project">Desafio Selvagem · desktop</p>
               <p class="inside-note-index">01 / 06 · Promessa</p>
               <div class="inside-note-copy">
                 <h3>A primeira dobra dá contexto.</h3>
