@@ -1,0 +1,78 @@
+.inside-section{background:var(--bone);border-top:1px solid var(--line);overflow:clip;scroll-margin-top:82px}
+.inside-section .inside-intro{padding-block:clamp(44px,6vw,80px) 36px}
+.inside-heading{display:grid;grid-template-columns:1fr .55fr;gap:10vw;align-items:end}
+.inside-heading h2{font:700 clamp(43px,5vw,72px)/.96 var(--display);letter-spacing:-.08em;margin:0}
+.inside-heading h2 em{font-family:var(--serif);font-weight:400}
+.inside-heading p{font-size:16px;line-height:1.5;color:#46564d;max-width:36ch;margin:0}
+
+.inside-examples{padding:0 9vw clamp(48px,8vw,110px)}
+.inside-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(218px,.32fr);gap:clamp(14px,2.5vw,36px);align-items:start}
+.inside-deck{min-width:0;perspective:1300px}
+.inside-frame{min-width:0;margin:0 0 18px}
+.inside-examples.is-enhanced .inside-deck{display:grid}
+.inside-examples.is-enhanced .inside-frame{grid-area:1/1;margin:0;z-index:1}
+.inside-examples.is-enhanced .inside-frame.is-departing{z-index:0;pointer-events:none}
+.inside-device-pair{display:grid;align-items:end;padding:8px 2px 20px;transform-style:preserve-3d}
+.inside-device{
+  position:relative;grid-area:1/1;min-width:0;box-sizing:border-box;
+  background:#132923;border:1px solid #3d5148;
+}
+.inside-device--desktop{
+  width:89%;align-self:center;margin-bottom:20px;padding:10px 10px 14px;
+  border-radius:13px;box-shadow:0 14px 28px #233c3424;
+  --inside-screen-width:1280px;--inside-screen-height:800px;--inside-screen-ratio:1280/800;
+}
+.inside-device--desktop::after{
+  content:"";position:absolute;left:34%;bottom:-14px;width:32%;height:14px;
+  border-radius:0 0 50% 50%;background:#263c34;pointer-events:none;
+}
+.inside-device--phone{
+  z-index:1;justify-self:end;width:clamp(108px,24%,216px);padding:13px 6px 7px;
+  border-radius:20px;box-shadow:-9px 9px 22px #15282042;
+  --inside-screen-width:390px;--inside-screen-height:844px;--inside-screen-ratio:390/844;
+}
+.inside-device--phone::before{
+  content:"";position:absolute;top:5px;left:42%;width:16%;height:3px;
+  border-radius:6px;background:#8a9b93;pointer-events:none;
+}
+.inside-viewport{overflow:hidden;aspect-ratio:var(--inside-screen-ratio);background:#f6eadc;border-radius:5px}
+.inside-device--phone .inside-viewport{border-radius:12px}
+.inside-examples .inside-viewport iframe{display:block;width:100%;height:100%;border:0;pointer-events:auto}
+.inside-examples.is-enhanced .inside-viewport iframe{
+  width:var(--inside-screen-width);height:var(--inside-screen-height);
+  transform:scale(var(--inside-scale,1));transform-origin:top left;
+}
+.inside-device:focus-within,.inside-switch button:focus-visible{outline:2px solid var(--clay);outline-offset:2px}
+
+.inside-notes{min-height:220px;padding:20px;background:#ebe6d9;border:1px solid var(--line);border-top:4px solid var(--forest)}
+.inside-note-project,.inside-note-index{margin:0 0 9px;font:500 11px/1.3 var(--mono);text-transform:uppercase}
+.inside-note-project{color:var(--forest);font-weight:700}
+.inside-note-index{color:#65473d}
+.inside-note-copy h3{margin:12px 0 0;font:700 clamp(22px,2.2vw,33px)/1.08 var(--display);letter-spacing:-.045em}
+.inside-note-copy p{margin:10px 0 0;color:#46564d;font-size:14px;line-height:1.5}
+.inside-switch:not([hidden]){display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.inside-switch button{min-height:44px;padding:7px 14px;border:1px solid var(--forest);background:var(--bone);color:var(--forest);font:700 13px/1.2 var(--sans);cursor:pointer}
+.inside-switch button[aria-pressed="true"]{background:var(--forest);color:var(--bone)}
+
+@media(max-width:880px){
+  .inside-examples{padding-inline:6vw}
+  .inside-grid{grid-template-columns:minmax(0,1fr)}
+  .inside-notes{min-height:0}
+}
+@media(max-width:660px){
+  .inside-section{scroll-margin-top:70px}
+  .inside-section .inside-intro{padding-block:38px 24px}
+  .inside-heading{display:block}
+  .inside-heading h2{font-size:clamp(36px,9vw,50px)}
+  .inside-heading p{margin-top:14px;font-size:15px}
+  .inside-examples{padding-inline:16px}
+  .inside-switch:not([hidden]){gap:4px;margin-bottom:10px}
+  .inside-switch button{flex:1 1 auto;padding-inline:7px;font-size:12px}
+  .inside-grid{gap:10px}
+  .inside-device-pair{padding:4px 0 10px}
+  .inside-device--desktop{align-self:start;width:96%;padding:6px 6px 9px;border-radius:9px}
+  .inside-device--phone{width:clamp(104px,34%,160px);margin-top:clamp(94px,35vw,180px);padding:11px 5px 6px;border-radius:15px}
+  .inside-device--phone .inside-viewport{border-radius:9px}
+  .inside-notes{padding:12px 16px}
+  .inside-note-copy h3{margin-top:6px}
+}
